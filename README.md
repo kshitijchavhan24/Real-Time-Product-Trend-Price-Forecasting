@@ -1,6 +1,6 @@
 # Real-Time Product Trend Analysis & Price Forecasting Platform
 
-platform for analyzing product trends and forecasting prices in real time. The project leverages big data technologies, machine learning models, and cloud infrastructure to deliver actionable insights.
+Platform for analyzing product trends and forecasting prices in real time. The project leverages big data technologies, machine learning models, and cloud infrastructure to deliver actionable insights.
 
 ## Overview
 
