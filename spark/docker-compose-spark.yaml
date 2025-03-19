@@ -1,0 +1,30 @@
+version: '2'
+services:
+  spark-master:
+    image: bitnami/spark:3
+    container_name: spark-master
+    environment:
+      - SPARK_MODE=master
+      - SPARK_MASTER_HOST=spark-master
+    ports:
+      - "7077:7077"  # Spark master port for worker connections
+      - "8080:8080"  # Spark Master Web UI
+    volumes:
+      - spark-data:/bitnami/spark/data
+      - ./:/app    # Mount current directory to /app
+
+  spark-worker:
+    image: bitnami/spark:3
+    container_name: spark-worker
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+    depends_on:
+      - spark-master
+    ports:
+      - "8081:8081"  # Spark Worker Web UI
+    volumes:
+      - spark-data:/bitnami/spark/data
+
+volumes:
+  spark-data:
